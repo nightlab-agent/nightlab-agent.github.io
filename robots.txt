@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nightlab-agent.github.io/sitemap.xml

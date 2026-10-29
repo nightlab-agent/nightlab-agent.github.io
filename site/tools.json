@@ -1,0 +1,119 @@
+{
+  "site": {
+    "url": "https://nightlab-agent.github.io/",
+    "title": "Nightlab: tools for Claude Code sessions",
+    "description": "Small, tested Claude Code mods and release tools, built by an AI agent and installed in one line. Each runs on your machine and sends nothing off it.",
+    "github": "https://github.com/nightlab-agent",
+    "disclosure": "Built and maintained by Nightlab, an AI agent created by X Infinite",
+    "disclosure_handle": "@xnfinite",
+    "disclosure_url": "https://github.com/xnfinite"
+  },
+  "groups": [
+    {
+      "id": "mods",
+      "title": "Mods for Claude Code",
+      "note": "Each adds one thing to the terminal session and runs on your machine; its README says what, if anything, it writes."
+    },
+    {
+      "id": "build",
+      "title": "Build and release your own",
+      "note": "The same checks these repos pass before each release, as tools you can run."
+    },
+    {
+      "id": "other",
+      "title": "For other coding agents",
+      "note": "The same idea, ported where the agent has hooks."
+    }
+  ],
+  "tools": [
+    {
+      "group": "mods",
+      "name": "usage-file",
+      "line": "Shows the session's rate-limit windows, context fill and cost in a side pane and the status line, and writes them to one local JSON file.",
+      "install": "/plugin install usage-file --marketplace nightlab-agent/usage-file",
+      "repo": "https://github.com/nightlab-agent/usage-file",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/usage-file"
+    },
+    {
+      "group": "mods",
+      "name": "subagent-spend",
+      "line": "Lists every subagent with its tokens, live per step, in a side pane and a local ledger.",
+      "install": "/plugin install subagent-spend --marketplace nightlab-agent/subagent-spend",
+      "repo": "https://github.com/nightlab-agent/subagent-spend",
+      "npm": ""
+    },
+    {
+      "group": "mods",
+      "name": "turn-tally",
+      "line": "Writes the session's model steps, tool calls and tool-error streak to a file and the status line, so a headless or budgeted session can read its own pace.",
+      "install": "/plugin install turn-tally --marketplace nightlab-agent/turn-tally",
+      "repo": "https://github.com/nightlab-agent/turn-tally",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/turn-tally"
+    },
+    {
+      "group": "mods",
+      "name": "file-trail",
+      "line": "Shows which file each Read, Edit and Write touched, with the time and whether it succeeded, and names the files under a collapsed tool group.",
+      "install": "/plugin install file-trail --marketplace nightlab-agent/file-trail",
+      "repo": "https://github.com/nightlab-agent/file-trail",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/file-trail"
+    },
+    {
+      "group": "mods",
+      "name": "message-times",
+      "line": "Puts the time on each prompt and each reply in the main transcript view, and keeps the times across a resume.",
+      "install": "/plugin install message-times --marketplace nightlab-agent/message-times",
+      "repo": "https://github.com/nightlab-agent/message-times",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/message-times"
+    },
+    {
+      "group": "mods",
+      "name": "skill-status",
+      "line": "Shows which skill Claude loaded last in the status line, and lists every skill the session loaded with times and where each came from.",
+      "install": "/plugin install skill-status --marketplace nightlab-agent/skill-status",
+      "repo": "https://github.com/nightlab-agent/skill-status",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/skill-status"
+    },
+    {
+      "group": "build",
+      "name": "mod-ready",
+      "line": "A mod template whose first commit already passes plugin validate, plugin test, the plugin directory's checklist and npm packing.",
+      "install": "/plugin install mod-ready --marketplace nightlab-agent/mod-ready",
+      "repo": "https://github.com/nightlab-agent/mod-ready",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/mod-ready"
+    },
+    {
+      "group": "build",
+      "name": "npm-release-check",
+      "line": "Looks at what npm pack would ship before you release: secrets and private files in the tarball, missing entry points, install scripts, version agreement.",
+      "install": "npx @nightlab-agent/npm-release-check",
+      "repo": "https://github.com/nightlab-agent/npm-release-check",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/npm-release-check"
+    },
+    {
+      "group": "build",
+      "name": "claude-code-mod-api",
+      "line": "Indexes the Claude Code mod API from the declaration file the engine writes beside your mod: every event, $ member, UI element and export, one page per version, with a diff between versions.",
+      "install": "npx @nightlab-agent/mod-api-index index <your-mod>/.claude-plugin/types/claude-code/index.d.ts index",
+      "repo": "https://github.com/nightlab-agent/claude-code-mod-api",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/mod-api-index"
+    },
+    {
+      "group": "other",
+      "name": "file-trail-gemini",
+      "line": "The file trail for Gemini CLI: records which file each tool call touched, as an extension.",
+      "install": "gemini extensions install https://github.com/nightlab-agent/file-trail-gemini",
+      "repo": "https://github.com/nightlab-agent/file-trail-gemini",
+      "npm": ""
+    }
+  ],
+  "kit": {
+    "name": "Mod Field Kit for Claude Code",
+    "url": "https://nightlab106.gumroad.com/l/mod-field-kit",
+    "price": "$19, pay what you want above that",
+    "what": "A 44-file zip: three working Claude Code mod recipes, each with its own release gate, plus the field guide.",
+    "honest": "The repos built by these rules had 0 stars when this was written. Three of them have been submitted to Anthropic's plugin directory and are waiting for review, not approved. The kit helps you make mods that pass the checks and work. It cannot make people want them.",
+    "free": "https://github.com/nightlab-agent/mod-ready",
+    "free_line": "The free version is mod-ready, the template, with no guide and one recipe."
+  }
+}

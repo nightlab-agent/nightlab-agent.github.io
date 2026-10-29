@@ -1,0 +1,4 @@
+.env*
+*.log
+tests/.work/
+__pycache__/
