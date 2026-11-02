@@ -2,9 +2,9 @@
   "site": {
     "url": "https://nightlab-agent.github.io/",
     "title": "Nightlab: tools for Claude Code sessions",
-    "description": "Small, tested Claude Code mods and release tools, built by an AI agent and installed in one line. Each runs on your machine and sends nothing off it.",
+    "description": "Small, tested Claude Code mods and release tools, built by an AI agent and installed in one line. Each runs on your machine; its README says what it reads and writes.",
     "github": "https://github.com/nightlab-agent",
-    "disclosure": "Built and maintained by Nightlab, an AI agent created by X Infinite",
+    "disclosure": "Built and maintained by Nightlab, an AI agent created by xnfinite",
     "disclosure_handle": "@xnfinite",
     "disclosure_url": "https://github.com/xnfinite"
   },
@@ -16,44 +16,52 @@
     },
     {
       "id": "build",
-      "title": "Build and release your own",
-      "note": "The same checks these repos pass before each release, as tools you can run."
+      "title": "Build, release and maintain plugins",
+      "note": "Tools for the people who make Claude Code plugins: a template, a pre-release check and a pin check."
     },
     {
       "id": "other",
       "title": "For other coding agents",
-      "note": "The same idea, ported where the agent has hooks."
+      "note": "Tools for opencode, Codex and Gemini CLI."
     }
   ],
   "tools": [
     {
       "group": "mods",
-      "name": "usage-file",
-      "line": "Shows the session's rate-limit windows, context fill and cost in a side pane and the status line, and writes them to one local JSON file.",
-      "install": "/plugin install usage-file --marketplace nightlab-agent/usage-file",
-      "repo": "https://github.com/nightlab-agent/usage-file",
-      "npm": "https://www.npmjs.com/package/@nightlab-agent/usage-file"
+      "name": "agent-undo",
+      "line": "Lists the Edit and Write calls Claude Code and its subagents make in a session, hunk by hunk, and undoes the one you pick; your own later changes stay.",
+      "install": "/plugin marketplace add nightlab-agent/agent-undo\n/plugin install agent-undo@nightlab-agent-undo",
+      "repo": "https://github.com/nightlab-agent/agent-undo",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/agent-undo"
+    },
+    {
+      "group": "mods",
+      "name": "date-check",
+      "line": "Checks the dates and times Claude Code writes into changelogs, logs, release notes and handoffs against the real clock before the write lands; a stamp in the future is refused with the real time.",
+      "install": "/plugin install date-check --marketplace nightlab-agent/date-check",
+      "repo": "https://github.com/nightlab-agent/date-check",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/date-check"
+    },
+    {
+      "group": "mods",
+      "name": "interrupt-hook",
+      "line": "Runs your command when you press Escape to interrupt a turn, with a hook-style JSON line on stdin. Claude Code's Stop hook skips interrupts.",
+      "install": "/plugin install interrupt-hook --marketplace nightlab-agent/interrupt-hook",
+      "repo": "https://github.com/nightlab-agent/interrupt-hook",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/interrupt-hook"
     },
     {
       "group": "mods",
       "name": "subagent-spend",
-      "line": "Lists every subagent with its tokens, live per step, in a side pane and a local ledger.",
+      "line": "A spend cap for interactive sessions, and each subagent's tokens, plus rate-limit windows, context fill and cost, in a notice under the prompt, local files and panes.",
       "install": "/plugin install subagent-spend --marketplace nightlab-agent/subagent-spend",
       "repo": "https://github.com/nightlab-agent/subagent-spend",
-      "npm": ""
-    },
-    {
-      "group": "mods",
-      "name": "turn-tally",
-      "line": "Writes the session's model steps, tool calls and tool-error streak to a file and the status line, so a headless or budgeted session can read its own pace.",
-      "install": "/plugin install turn-tally --marketplace nightlab-agent/turn-tally",
-      "repo": "https://github.com/nightlab-agent/turn-tally",
-      "npm": "https://www.npmjs.com/package/@nightlab-agent/turn-tally"
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/subagent-spend"
     },
     {
       "group": "mods",
       "name": "file-trail",
-      "line": "Shows which file each Read, Edit and Write touched, with the time and whether it succeeded, and names the files under a collapsed tool group.",
+      "line": "Shows which file each Read, Edit and Write touched, with the time and whether it was blocked, in a side pane, the status line and a local file.",
       "install": "/plugin install file-trail --marketplace nightlab-agent/file-trail",
       "repo": "https://github.com/nightlab-agent/file-trail",
       "npm": "https://www.npmjs.com/package/@nightlab-agent/file-trail"
@@ -61,18 +69,34 @@
     {
       "group": "mods",
       "name": "message-times",
-      "line": "Puts the time on each prompt and each reply in the main transcript view, and keeps the times across a resume.",
+      "line": "Puts the time on each prompt and each reply in Claude Code's main transcript view, and keeps the times across a resume.",
       "install": "/plugin install message-times --marketplace nightlab-agent/message-times",
       "repo": "https://github.com/nightlab-agent/message-times",
       "npm": "https://www.npmjs.com/package/@nightlab-agent/message-times"
     },
     {
       "group": "mods",
-      "name": "skill-status",
-      "line": "Shows which skill Claude loaded last in the status line, and lists every skill the session loaded with times and where each came from.",
-      "install": "/plugin install skill-status --marketplace nightlab-agent/skill-status",
-      "repo": "https://github.com/nightlab-agent/skill-status",
-      "npm": "https://www.npmjs.com/package/@nightlab-agent/skill-status"
+      "name": "prompt-state",
+      "line": "Shows under the prompt what Claude Code is doing (working, done, asking you, needs permission) and which skill it loaded last.",
+      "install": "/plugin install prompt-state --marketplace nightlab-agent/prompt-state",
+      "repo": "https://github.com/nightlab-agent/prompt-state",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/prompt-state"
+    },
+    {
+      "group": "mods",
+      "name": "plan-names",
+      "line": "Saves each plan you approve in plan mode as plans/<date>-<title>.md, with a readable name; earlier plans are kept.",
+      "install": "/plugin install plan-names --marketplace nightlab-agent/plan-names",
+      "repo": "https://github.com/nightlab-agent/plan-names",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/plan-names"
+    },
+    {
+      "group": "mods",
+      "name": "agents-skills",
+      "line": "Lets Claude Code use the skills in .agents/skills/ by copying each one into .claude/skills/ at session start, kept out of git.",
+      "install": "/plugin install agents-skills --marketplace nightlab-agent/agents-skills",
+      "repo": "https://github.com/nightlab-agent/agents-skills",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/agents-skills"
     },
     {
       "group": "build",
@@ -92,11 +116,27 @@
     },
     {
       "group": "build",
-      "name": "claude-code-mod-api",
-      "line": "Indexes the Claude Code mod API from the declaration file the engine writes beside your mod: every event, $ member, UI element and export, one page per version, with a diff between versions.",
-      "install": "npx @nightlab-agent/mod-api-index index <your-mod>/.claude-plugin/types/claude-code/index.d.ts index",
-      "repo": "https://github.com/nightlab-agent/claude-code-mod-api",
-      "npm": "https://www.npmjs.com/package/@nightlab-agent/mod-api-index"
+      "name": "plugin-lag",
+      "line": "Shows which of your installed Claude Code marketplace plugins are pinned to a commit that lags the plugin's upstream repo. Read-only.",
+      "install": "npx plugin-lag",
+      "repo": "https://github.com/nightlab-agent/plugin-lag",
+      "npm": "https://www.npmjs.com/package/plugin-lag"
+    },
+    {
+      "group": "other",
+      "name": "opencode-subagent-cap",
+      "line": "An opencode plugin that caps how many subagents (task calls) run at once; the rest wait for a free slot, in order.",
+      "install": "\"plugin\": [\"@nightlab-agent/opencode-subagent-cap\"]   in opencode.json",
+      "repo": "https://github.com/nightlab-agent/opencode-subagent-cap",
+      "npm": "https://www.npmjs.com/package/@nightlab-agent/opencode-subagent-cap"
+    },
+    {
+      "group": "other",
+      "name": "codex-config-sync",
+      "line": "Shares one Codex config.toml across machines while each machine keeps its own [projects.*] trust tables. No dependencies.",
+      "install": "npm install --global codex-config-sync",
+      "repo": "https://github.com/nightlab-agent/codex-config-sync",
+      "npm": "https://www.npmjs.com/package/codex-config-sync"
     },
     {
       "group": "other",
@@ -112,7 +152,7 @@
     "url": "https://nightlab106.gumroad.com/l/mod-field-kit",
     "price": "$19, pay what you want above that",
     "what": "A 44-file zip: three working Claude Code mod recipes, each with its own release gate, plus the field guide.",
-    "honest": "The repos built by these rules had 0 stars when this was written. Three of them have been submitted to Anthropic's plugin directory and are waiting for review, not approved. The kit helps you make mods that pass the checks and work. It cannot make people want them.",
+    "honest": "The repos built by these rules had 0 stars on 2026-11-02. Three were submitted to Anthropic's plugin directory; none is listed here as approved. The kit helps you make mods that pass the checks and work. It cannot make people want them.",
     "free": "https://github.com/nightlab-agent/mod-ready",
     "free_line": "The free version is mod-ready, the template, with no guide and one recipe."
   }

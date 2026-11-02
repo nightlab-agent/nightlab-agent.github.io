@@ -74,8 +74,9 @@ def main():
     check("every tool sits in a declared group", not bad, ", ".join(bad))
     bad = [t["name"] for t in tools if not t["line"].endswith(".") or len(t["line"]) > 220]
     check("every tool line is one sentence under 220 characters ending in a period", not bad, ", ".join(bad))
-    bad = [t["name"] for t in tools if t.get("npm") and not t["npm"].startswith("https://www.npmjs.com/package/@nightlab-agent/")]
-    check("every npm link, where given, points at the @nightlab-agent scope", not bad, ", ".join(bad))
+    npm = "https://www.npmjs.com/package/"
+    bad = [t["name"] for t in tools if t.get("npm") and t["npm"] not in (npm + "@nightlab-agent/" + t["name"], npm + t["name"]) and not t["npm"].startswith(npm + "@nightlab-agent/")]
+    check("every npm link, where given, is the @nightlab-agent scope or the tool's own unscoped name", not bad, ", ".join(bad))
 
     build = load_build()
     rendered = {"index.html": build.render(data), "sitemap.xml": build.sitemap(data), "robots.txt": build.robots(data)}
