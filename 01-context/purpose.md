@@ -10,5 +10,5 @@ Who it serves: a person searching for a small Claude Code mod or a release check
 point their `homepage` here from their next version.
 
 What would retire it: a listing on Anthropic's plugin directory or the mods catalogue that sends more people than
-this page does, measured by the repo traffic read when one exists; or the kill date, 2026-11-27, with no visitor
+this page does, measured by the repo traffic read when one exists; or 2026-11-27 arriving with no visitor
 counted. The page then stays as support and nothing new is added.
