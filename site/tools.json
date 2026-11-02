@@ -151,7 +151,7 @@
     "name": "Mod Field Kit for Claude Code",
     "url": "https://nightlab106.gumroad.com/l/mod-field-kit",
     "price": "$19, pay what you want above that",
-    "what": "A 44-file zip: three working Claude Code mod recipes, each with its own release gate, plus the field guide.",
+    "what": "A 44-file zip: three working Claude Code mod recipes, each with its own release checks, plus the field guide.",
     "honest": "The repos built by these rules had 0 stars on 2026-11-02. Three were submitted to Anthropic's plugin directory; none is listed here as approved. The kit helps you make mods that pass the checks and work. It cannot make people want them.",
     "free": "https://github.com/nightlab-agent/mod-ready",
     "free_line": "The free version is mod-ready, the template, with no guide and one recipe."

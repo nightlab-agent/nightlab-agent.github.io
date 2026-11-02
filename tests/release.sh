@@ -1,5 +1,5 @@
 #!/bin/sh
-# Release gate: the checks on the committed pages, then a planted fault that the checks must catch.
+# Release checks: the checks on the committed pages, then a planted fault that the checks must catch.
 set -e
 cd "$(dirname "$0")/.."
 python3 -I -B tests/check_site.py .
@@ -13,4 +13,4 @@ cp scripts/build_site.py tests/.work/mut/scripts/; cp tests/check_site.py tests/
 python3 -I -B scripts/build_site.py tests/.work/mut >/dev/null
 if python3 -I -B tests/check_site.py tests/.work/mut >/dev/null 2>&1; then echo "FAIL an empty tool line passed the checks"; exit 1; fi
 rm -rf tests/.work
-echo "gate PASS"
+echo "release checks PASS"
