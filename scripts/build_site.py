@@ -18,7 +18,7 @@ main{max-width:46rem;margin:0 auto;padding:2rem 1rem 4rem}
 h1{font-size:1.8rem;margin:0 0 .25rem}h2{font-size:1.25rem;margin:2.5rem 0 .25rem;border-bottom:1px solid var(--line);padding-bottom:.25rem}
 h3{font-size:1.05rem;margin:1.5rem 0 .25rem}p{margin:.4rem 0}.mute{color:var(--mute)}
 a{color:var(--link)}code,pre{font:.9rem/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:var(--code);border-radius:4px}
-code{padding:.1rem .3rem}pre{padding:.6rem .8rem;overflow-x:auto;margin:.4rem 0}
+code{padding:.1rem .3rem}pre code{padding:0}pre{padding:.6rem .8rem;overflow-x:auto;margin:.4rem 0}
 .links a{margin-right:1rem}.kit{border:1px solid var(--line);border-radius:6px;padding:1rem;margin-top:1rem}
 footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--line);font-size:.9rem;color:var(--mute)}
 """
